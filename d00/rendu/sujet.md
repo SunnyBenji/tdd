@@ -1,7 +1,7 @@
 # Bank
 - Retirer 👍
 - Deposer 👍
-- Consulter le solde 
+- Consulter le solde 👍
 - Virement 👍
 - Consulter l'historique des operations 👍
 - Faire un emprunt 👍

@@ -12,6 +12,11 @@ export class BankAccount {
         this.bank = bank;
     }
 
+    //Voir l'argent sur le compte
+    public getBalance(): number {
+        return this.balance
+    }
+
     // Déposer de l'argent dans le compte
     public deposit(amount: number): void {
         this.balance += amount;

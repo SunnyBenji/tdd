@@ -53,6 +53,18 @@ describe('Bank class', () => {
         })
     })
 
+    // Test voir son argent
+    describe("Get balance", () => {
+        it('Should return 100 ',() => {
+            account.deposit(100);
+            expect(account.getBalance()).toBe(100)
+        })
+        it('Should return 18759 ',() => {
+            account.deposit(18759);
+            expect(account.getBalance()).toBe(18759)
+        })
+    })
+
     // Test déposer de l'argent
     describe("Deposit money", () => {
         it('Should return 100 ',() => {
