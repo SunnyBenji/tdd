@@ -19,6 +19,9 @@ export class BankAccount {
 
     // Déposer de l'argent dans le compte
     public deposit(amount: number): void {
+        if (amount <= 0) {
+            throw new Error("You can't deposit 0 or negative money")
+        }
         this.balance += amount;
         const transaction: Transaction = {
             type: "deposit",
@@ -30,6 +33,9 @@ export class BankAccount {
 
     // Retirer de l'argent dans le compte
     public withdraw(amount: number): void {
+        if (amount <= 0) {
+            throw new Error("You can't withdraw 0 or negative money")
+        }
         this.balance -= amount;
         const transaction: Transaction = {
             type: "withdrawal",
@@ -42,6 +48,9 @@ export class BankAccount {
 
     // Virement de l'argent dans un autre compte
     public transfer(toAccount: BankAccount, amount: number): void {
+        if (amount <= 0) {
+            throw new Error("You can't transfert 0 or negative money")
+        }
         if(amount > this.balance) {
             throw new Error("You don't have enough money")
         }
@@ -76,6 +85,9 @@ export class BankAccount {
     }
 
     public makeALoan(amount: number): void {
+        if (amount <= 0) {
+            throw new Error("You can't loan 0 or negative money")
+        }
         if (amount+this.loan > 0.2*this.balance) {
             throw new Error("You are not authorize to loan this amount")
         }

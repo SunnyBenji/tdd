@@ -75,6 +75,12 @@ describe('Bank class', () => {
             account.deposit(18759);
             expect(account.balance).toBe(18759)
         })
+        it('Should return an error',() => {
+            expect(() => account.deposit(-1)).toThrowError('You can\'t deposit 0 or negative money');
+        })
+        it('Should return an error',() => {
+            expect(() => account.deposit(0)).toThrowError('You can\'t deposit 0 or negative money');
+        })
     })
 
     // Test retirer de l'argent
@@ -88,6 +94,12 @@ describe('Bank class', () => {
             account.deposit(5600);
             account.withdraw(1100)
             expect(account.balance).toBe(4500)
+        })
+        it('Should return an error ',() => {
+            expect(() => account.withdraw(-1)).toThrowError('You can\'t withdraw 0 or negative mone');
+        })
+        it('Should return an error ',() => {
+            expect(() => account.withdraw(0)).toThrowError('You can\'t withdraw 0 or negative mone');
         })
     })
 
@@ -109,6 +121,16 @@ describe('Bank class', () => {
         it('should return an error if the destination account is not in the beneficiary list', () => {
             account.deposit(1000)
             expect(() => account.transfer(otherAccounts[1], 100)).toThrowError('This account is not in your beneficiaries list')
+        })
+        it('Should return an error ',() => {
+            account.deposit(200);
+            account.addBeneficiary(otherAccounts[0])
+            expect(() => account.transfer(otherAccounts[0], -1)).toThrowError("You can't transfert 0 or negative money");
+        })
+        it('Should return an error ',() => {
+            account.deposit(200);
+            account.addBeneficiary(otherAccounts[0])
+            expect(() => account.transfer(otherAccounts[0], 0)).toThrowError("You can't transfert 0 or negative money");
         })
     })
 
@@ -189,6 +211,12 @@ describe('Bank class', () => {
             account.deposit(100000)
             account.makeALoan(100)
             expect(account.loan).toBe(100)
+        })
+        it('should return an error when making a loan when  0 money is require', () => {
+            expect(() => account.makeALoan(0)).toThrowError('You can\'t loan 0 or negative money')
+        })
+        it('should return an error when making a loan with negative money is require', () => {
+            expect(() => account.makeALoan(-1)).toThrowError('You can\'t loan 0 or negative money')
         })
     });
 })
