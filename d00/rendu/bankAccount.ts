@@ -1,6 +1,7 @@
 import {Transaction} from "./transactionInterface";
 import {Bank} from "./bank";
 
+// Notre compte bancaire
 export class BankAccount {
     public bank: Bank;
     public balance: number = 0;
@@ -12,7 +13,7 @@ export class BankAccount {
         this.bank = bank;
     }
 
-    //Voir l'argent sur le compte
+    // Voir l'argent sur le compte
     public getBalance(): number {
         return this.balance
     }
@@ -83,7 +84,7 @@ export class BankAccount {
         }
         this.beneficiaries.splice(this.beneficiaries.indexOf(account), 1);
     }
-
+    // Faire un prêt
     public makeALoan(amount: number): void {
         if (amount <= 0) {
             throw new Error("You can't loan 0 or negative money")

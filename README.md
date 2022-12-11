@@ -5,7 +5,7 @@ Ce projet a été réalisé dans le cadre du cours TDD.
 L'objectif était de procéder à des tests qui tiennent compte de toute éventualité concernant les fonctionnalités bancaires développées.
 
 
-### Les fonctionnalités bancaires dévéloppées :
+### Les fonctionnalités bancaires développées :
 - Retirer de l'argent
 - Déposer de l'argent
 - Consulter le solde de son compte bancaire

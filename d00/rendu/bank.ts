@@ -1,7 +1,7 @@
 import {BankAccount} from "./bankAccount";
-import {Transaction} from "./transactionInterface";
-import {Loans} from "./loanInterface"
-// Class Bank
+import {Loans} from "./loanInterface";
+
+// La banque
 export class Bank {
     public accounts: Array<BankAccount> = [];
     public loans: Array<Loans> = []
@@ -20,6 +20,7 @@ export class Bank {
         }
     }
 
+    // Attribuer des prêts
     public attributeLoan = (account: BankAccount, amount: number): void => {
         const loan: Loans =  {
             amount,
